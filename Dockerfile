@@ -3,6 +3,11 @@ EXPOSE 80
 WORKDIR /app
 USER root
 
+ENV UUID 0c5efda9-4559-4597-856d-c88a68c9c92d
+
+ENV VMESS_WSPATH /vmess
+ENV VLESS_WSPATH /vless
+
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY config.json ./
 COPY entrypoint.sh ./
