@@ -8,25 +8,6 @@
 		{
 			"port": 10000,
 			"listen": "127.0.0.1",
-			"protocol": "vmess",
-			"settings": {
-				"clients": [
-					{
-						"id": "UUID",
-						"alterId": 0
-					}
-				]
-			},
-			"streamSettings": {
-				"network": "ws",
-				"wsSettings": {
-					"path": "VMESS_WSPATH"
-				}
-			}
-		},
-		{
-			"port": 20000,
-			"listen": "127.0.0.1",
 			"protocol": "vless",
 			"settings": {
 				"clients": [
@@ -44,26 +25,7 @@
 			}
 		},
 		{
-			"port": 30000,
-			"listen": "127.0.0.1",
-			"protocol": "trojan",
-			"settings": {
-				"clients": [
-					{
-						"password": "UUID"
-					}
-				],
-				"decryption": "none"
-			},
-			"streamSettings": {
-				"network": "ws",
-				"wsSettings": {
-					"path": "TROJAN_WSPATH"
-				}
-			}
-		},
-		{
-			"port": 40000,
+			"port": 20000,
 			"listen": "127.0.0.1",
 			"protocol": "shadowsocks",
 			"settings": {
@@ -113,7 +75,7 @@
 				"type": "field",
 				"domain": [
 					"geosite:openai",
-					"domain:sentry.io"
+					"domain:2ip.io"
 				],
 				"outboundTag": "WARP"
 			},

@@ -3,10 +3,9 @@ EXPOSE 80
 WORKDIR /app
 USER root
 
-ENV UUID 0c5efda9-4559-4597-856d-c88a68c9c92d
-
-ENV VMESS_WSPATH /vmess
-ENV VLESS_WSPATH /vless
+ENV UUID='de04add9-5c68-8bab-950c-08cd5320df18'
+ENV VLESS_WSPATH='/vless'
+ENV SS_WSPATH='/shadowsocks'
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY config.json ./

@@ -1,6 +1,8 @@
 services:
-  okvtwo:
+  prox:
     build: .
     shm_size: 2.6gb
     ports:
       - "80:80"
+    env_file: .env
+      
