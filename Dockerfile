@@ -12,7 +12,7 @@ COPY config.json ./
 COPY entrypoint.sh ./
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-RUN apk update && apk add --no-cache supervisor wget unzip curl && \
+RUN apk update && apk add --no-cache bash supervisor wget unzip curl && \
 	wget -O temp.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
     unzip temp.zip xray && \
     rm -f temp.zip && \
