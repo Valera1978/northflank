@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:mainline-alpine-slim
 EXPOSE 80
 WORKDIR /app
 USER root
@@ -10,11 +10,14 @@ ENV SS_WSPATH='/shadowsocks'
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY config.json ./
 COPY entrypoint.sh ./
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-RUN apt-get update && apt-get install -y wget unzip iproute2 systemctl && \
-    wget -O temp.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
+RUN apk update && apk add --no-cache supervisor wget unzip curl && \
+	wget -O temp.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
     unzip temp.zip xray && \
     rm -f temp.zip && \
-    chmod -v 755 xray entrypoint.sh
+    chmod -v 755 xray entrypoint.sh \
+    apk del wget unzip && \
+    rm -rf /var/cache/apk/*
 
 ENTRYPOINT [ "./entrypoint.sh" ]
