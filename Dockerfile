@@ -16,7 +16,7 @@ RUN apk update && apk add --no-cache supervisor wget unzip curl && \
 	wget -O temp.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
     unzip temp.zip xray && \
     rm -f temp.zip && \
-    chmod -v 755 xray entrypoint.sh \
+    chmod -v 755 xray entrypoint.sh && \
     apk del wget unzip && \
     rm -rf /var/cache/apk/*
 
